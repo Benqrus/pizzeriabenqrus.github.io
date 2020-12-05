@@ -1,0 +1,12 @@
+// максимальный размер окна по макету
+$maxWidth: 1450;
+// передаваемые в миксин параметры
+// maxFontSize - исходный шрифт по макету в разрешении $maxWidth
+// minFontSize - желаемый шрифт в разрешении $minWidth
+@mixin adaptiv-font($maxFontSize, $minFontSize) {
+    // разница в размерах шрифтов
+    $fontDifference: $maxFontSize - $minFontSize;
+    //размер экрана, в котором будет применяться шрифт
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$minFontSize + px} + #{$fontDifference} * ((100vw - 320px) / #{$maxWidth}));
+}
